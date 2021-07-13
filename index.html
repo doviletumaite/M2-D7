@@ -35,7 +35,8 @@
 
         /* 2 */
         nav a {
-            background-color: rgb(103, 103, 230)
+            background-color: rgb(16, 16, 104);
+            color:rgba(107, 4, 158, 0.404);
         }
 
         /* 3 */
@@ -44,7 +45,7 @@
         }
 
         /* 4 */
-        div .row-mb-2:first-child {
+        .blog-post:first-of-type {
             background-color: rgba(63, 223, 49, 0.692);
         }
 
@@ -493,6 +494,14 @@
     </footer>
 
     <script>
+    
+    aNewLink = function () {
+      let link = document.createElement("a")
+      link.innerText = "New"
+       let nav = document.getElementsByClassName("nav-scroller")
+       nav.appendChild(link)  
+      } 
+
       /*
         JS Exercises
         EX11) Write a function to add a new link into the navbar
