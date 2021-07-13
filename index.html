@@ -495,11 +495,10 @@
 
     <script>
     
-    aNewLink = function () {
-      let link = document.createElement("a")
-      link.innerText = "New"
-       let nav = document.getElementsByClassName("nav-scroller")
-       nav.appendChild(link)  
+    const aNewLink = function () {
+      let nav = document.querySelector("nav")
+      let a = `<a class="p-2 text-muted" href="#">NEW</a>`
+      nav.innerHTML += a
       } 
 
       /*
