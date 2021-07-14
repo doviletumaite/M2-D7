@@ -501,6 +501,86 @@
       nav.innerHTML += a
       } 
 
+      const changeTitle = function () {
+        const title = document.querySelector(".jumbotron h1");
+        title.style.color = "white";
+      };
+
+      changeTitle();
+      const changeJmbotronBg = function () {
+        const jumbotron = document.querySelector(".jumbotron");
+        jumbotron.classList.remove("bg-dark");
+        jumbotron.classList.remove("text-white");
+      };
+      changeJmbotronBg();
+      const removeOl = function () {
+        const ol = document.querySelector(
+          ".blog-sidebar > div:last-of-type ol "
+        );
+        ol.innerHTML = "";
+      };
+      removeOl();
+      const changeColSize = function () {
+        const cols = document.querySelectorAll(".jumbotron + div .col-md-6");
+        console.log(cols);
+        cols.forEach((col) => {
+          col.className = "col-md-4";
+        });
+      };
+      changeColSize();
+      const removeSearch = function () {
+        const div = document.querySelector(
+          ".blog-header .row div:last-of-type"
+        );
+        console.log(div);
+        div.children[0].remove();
+      };
+      removeSearch();
+      const addNewPost = (title = "New Post") => {
+        const parentElement = document.querySelector(".blog-main");
+        const nextSibling = document.querySelector(".blog-pagination");
+
+        const newPostDiv = document.createElement("div");
+        newPostDiv.classList.add("blog-post");
+
+        const newPostTitle = document.createElement("h2");
+        newPostTitle.classList.add("blog-post-title");
+        newPostTitle.innerText = title;
+
+        newPostDiv.appendChild(newPostTitle);
+        parentElement.insertBefore(newPostDiv, nextSibling);
+      };
+      addNewPost();
+      const removeLastBlog = function () {
+        const btn = document.querySelectorAll(".blog-pagination a")[0];
+        btn.removeAttribute("href");
+        btn.addEventListener("click", function () {
+          const blogs = document.querySelectorAll(".blog-post");
+          blogs[blogs.length - 1].remove();
+        });
+      };
+      removeLastBlog();
+      const alertAuthors = function () {
+        const authors = document.querySelectorAll(
+          " main .blog-main .blog-post > h2 + p > a"
+        );
+        authors.forEach((a) => {
+          a.addEventListener("mouseenter", function (e) {
+            alert(e.target.innerText);
+          });
+        });
+      };
+      alertAuthors();
+      const trimPost = function () {
+        const posts = document.querySelectorAll(".blog-post p:nth-child(3)");
+        console.log(posts);
+        posts.forEach((post) => {
+          post.innerText = post.innerText.substring(150);
+        });
+      };
+      //trimPost();
+ 
+
       /*
         JS Exercises
         EX11) Write a function to add a new link into the navbar
